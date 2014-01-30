@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>pixel.png</Source>
+      <Name>pixel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Skydrive\d20 Sunheart\Auxiliary 3\Auxiliary\bin\x86\Debug\AuxiliaryContent 3\pixel.xnb</Output>
+      <Time>2012-06-18T13:57:21+02:00</Time>
+    </Item>
+    <Item>
+      <Source>circle1000x1000.png</Source>
+      <Name>circle1000x1000</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Skydrive\d20 Sunheart\Auxiliary 3\Auxiliary\bin\x86\Debug\AuxiliaryContent 3\circle1000x1000.xnb</Output>
+      <Time>2012-06-18T15:52:57+02:00</Time>
+    </Item>
+    <Item>
+      <Source>emptyCircle1000x1000.png</Source>
+      <Name>emptyCircle1000x1000</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Skydrive\d20 Sunheart\Auxiliary 3\Auxiliary\bin\x86\Debug\AuxiliaryContent 3\emptyCircle1000x1000.xnb</Output>
+      <Time>2012-06-18T15:57:44+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons\error.png</Source>
+      <Name>Icons\error</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Skydrive\d20 Sunheart\Auxiliary 3\Auxiliary\bin\x86\Debug\AuxiliaryContent 3\Icons\error.xnb</Output>
+      <Time>2012-08-06T21:43:42+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons\information.png</Source>
+      <Name>Icons\information</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Skydrive\d20 Sunheart\Auxiliary 3\Auxiliary\bin\x86\Debug\AuxiliaryContent 3\Icons\information.xnb</Output>
+      <Time>2012-08-06T21:43:42+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons\pause.png</Source>
+      <Name>Icons\pause</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Skydrive\d20 Sunheart\Auxiliary 3\Auxiliary\bin\x86\Debug\AuxiliaryContent 3\Icons\pause.xnb</Output>
+      <Time>2012-08-07T08:29:18+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons\play.png</Source>
+      <Name>Icons\play</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Skydrive\d20 Sunheart\Auxiliary 3\Auxiliary\bin\x86\Debug\AuxiliaryContent 3\Icons\play.xnb</Output>
+      <Time>2012-08-07T08:25:29+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons\question.png</Source>
+      <Name>Icons\question</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Skydrive\d20 Sunheart\Auxiliary 3\Auxiliary\bin\x86\Debug\AuxiliaryContent 3\Icons\question.xnb</Output>
+      <Time>2012-08-06T21:43:42+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons\warning.png</Source>
+      <Name>Icons\warning</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Skydrive\d20 Sunheart\Auxiliary 3\Auxiliary\bin\x86\Debug\AuxiliaryContent 3\Icons\warning.xnb</Output>
+      <Time>2012-08-06T21:43:42+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons\fullscreen.png</Source>
+      <Name>Icons\fullscreen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Skydrive\d20 Sunheart\Auxiliary 3\Auxiliary\bin\x86\Debug\AuxiliaryContent 3\Icons\fullscreen.xnb</Output>
+      <Time>2012-08-07T08:26:59+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons\stop.png</Source>
+      <Name>Icons\stop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Skydrive\d20 Sunheart\Auxiliary 3\Auxiliary\bin\x86\Debug\AuxiliaryContent 3\Icons\stop.xnb</Output>
+      <Time>2012-08-07T08:26:11+02:00</Time>
+    </Item>
+    <Item>
+      <Source>topRightCorner.png</Source>
+      <Name>topRightCorner</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Skydrive\d20 Sunheart\Auxiliary 3\Auxiliary\bin\x86\Debug\AuxiliaryContent 3\topRightCorner.xnb</Output>
+      <Time>2013-02-23T13:51:47+01:00</Time>
+    </Item>
+    <Item>
+      <Source>fontCourierNew.spritefont</Source>
+      <Name>fontCourierNew</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Skydrive\d20 Sunheart\Auxiliary 3\Auxiliary\bin\x86\Debug\AuxiliaryContent 3\fontCourierNew.xnb</Output>
+      <Time>2012-06-18T15:19:34+02:00</Time>
+    </Item>
+    <Item>
+      <Source>fontVerdana.spritefont</Source>
+      <Name>fontVerdana</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Skydrive\d20 Sunheart\Auxiliary 3\Auxiliary\bin\x86\Debug\AuxiliaryContent 3\fontVerdana.xnb</Output>
+      <Time>2013-05-20T19:53:07+02:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>D:\Skydrive\d20 Sunheart\Auxiliary 3\AuxiliaryContent\</RootDirectory>
+      <LoggerRootDirectory>D:\Skydrive\d20 Sunheart\Auxiliary 3\Auxiliary\</LoggerRootDirectory>
+      <IntermediateDirectory>D:\Skydrive\d20 Sunheart\Auxiliary 3\AuxiliaryContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>D:\Skydrive\d20 Sunheart\Auxiliary 3\Auxiliary\bin\x86\Debug\AuxiliaryContent 3\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T13:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T13:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2013-11-06T20:42:24.6451006+01:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

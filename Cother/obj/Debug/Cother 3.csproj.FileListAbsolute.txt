@@ -1,0 +1,10 @@
+D:\Skydrive\d20 Sunheart\Auxiliary 3\Cother\bin\Debug\Cother.XML
+D:\Skydrive\d20 Sunheart\Auxiliary 3\Cother\bin\Debug\Cother.dll
+D:\Skydrive\d20 Sunheart\Auxiliary 3\Cother\bin\Debug\Cother.pdb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\Cother\bin\Debug\lua51.dll
+D:\Skydrive\d20 Sunheart\Auxiliary 3\Cother\bin\Debug\LuaInterface.dll
+D:\Skydrive\d20 Sunheart\Auxiliary 3\Cother\obj\Debug\Cother 3.csprojResolveAssemblyReference.cache
+D:\Skydrive\d20 Sunheart\Auxiliary 3\Cother\obj\Debug\Cother.Properties.Resources.resources
+D:\Skydrive\d20 Sunheart\Auxiliary 3\Cother\obj\Debug\Cother 3.csproj.GenerateResource.Cache
+D:\Skydrive\d20 Sunheart\Auxiliary 3\Cother\obj\Debug\Cother.dll
+D:\Skydrive\d20 Sunheart\Auxiliary 3\Cother\obj\Debug\Cother.pdb

@@ -1,0 +1,516 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cother</name>
+    </assembly>
+    <members>
+        <member name="T:Cother.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Cother.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Cother.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:Cother.Grid`1">
+            <summary>
+            A generic class that represent a 2D grid of tiles, useful for maps (in the cartographic sense, not the discrete mathematics sense).
+            </summary>
+            <typeparam name="T">Type of tiles.</typeparam>
+        </member>
+        <member name="M:Cother.Grid`1.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Creates a 2D grid of tiles with the specified unmodifiable dimensions. All tiles will be initialized to null or their default value if not class instances.
+            </summary>
+            <param name="width">Width of the grid.</param>
+            <param name="height">Height of the grid.</param>
+        </member>
+        <member name="M:Cother.Grid`1.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            </returns>
+            <filterpriority>1</filterpriority>
+        </member>
+        <member name="M:Cother.Grid`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Cother.Grid`1.Exists(System.Int32,System.Int32)">
+            <summary>
+            Returns true if the specified coordinate exists within the Grid (i.e. both coordinates are greater or equal to zero and less than the width or height, respectively.
+            </summary>
+            <param name="x">The X coordinate.</param>
+            <param name="y">The Y coordinate.</param>
+        </member>
+        <member name="P:Cother.Grid`1.Width">
+            <summary>
+            Gets the width of the grid in tiles.
+            </summary>
+        </member>
+        <member name="P:Cother.Grid`1.Height">
+            <summary>
+            Gets the height of the grid in tiles.
+            </summary>
+        </member>
+        <member name="P:Cother.Grid`1.Item(System.Int32)">
+            <summary>
+            Gets a column of tiles based on its 'X' coordinate.
+            </summary>
+            <param name="x">Specify the 'X' coordinate now.</param>
+        </member>
+        <member name="T:Cother.GridColumn`1">
+            <summary>
+            This class represents a single column of tiles from the grid. Has internal constructor only.
+            </summary>
+            <typeparam name="T">Type of tiles.</typeparam>
+        </member>
+        <member name="M:Cother.GridColumn`1.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            </returns>
+            <filterpriority>1</filterpriority>
+        </member>
+        <member name="M:Cother.GridColumn`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Cother.GridColumn`1.Item(System.Int32)">
+            <summary>
+            Gets or set the tile at this X,Y position of the grid.
+            </summary>
+            <param name="index">Specify the 'Y' coordinate now.</param>
+        </member>
+        <member name="T:Cother.DeepCopy">
+            <summary>
+            This utility class allows you to perform a memberwise shallow copy.
+            </summary>
+        </member>
+        <member name="M:Cother.DeepCopy.MemberwiseCopy``1(``0)">
+            <summary>
+            Creates a semi-deep of an object. Its type must have a parameterless constructor. All fields and properties are copied. Even Lists and arrays are only copied by reference.
+            </summary>
+            <typeparam name="T">Type of the object to copy.</typeparam>
+            <param name="original">The object to copy.</param>
+            <returns>The deep copy.</returns>
+        </member>
+        <member name="T:Cother.ApplicationWideSetting">
+            <summary>
+            When you call ApplicationSettingsManagement.SaveSettings, this field will be saved. It will be loaded when you call .LoadSettings.
+            </summary>
+        </member>
+        <member name="T:Cother.ApplicationSettingsManagement">
+            <summary>
+            This class handles the ApplicationWideSetting attribute and allows you to easily serialize your data to disk.
+            </summary>
+        </member>
+        <member name="M:Cother.ApplicationSettingsManagement.LoadSettings(System.Object)">
+            <summary>
+            Loads application-wide settings from file into the "container".
+            In the container, you must specify fields  to save with [ApplicationWideSetting] attribute.
+            They must be [Serializable].
+            </summary>
+            <param name="container">The object that has the specified fields</param>
+            <returns>Were the settings loaded from file?</returns>
+        </member>
+        <member name="M:Cother.ApplicationSettingsManagement.SaveSettings(System.Object)">
+            <summary>
+            Saves application-wide settings into a file from the container.
+            In the container, you must specify fields to save with [ApplicationWideSetting] attribute.
+            They must be [Serializable].
+            </summary>
+            <param name="container">The object that has the specified fields</param>
+            <returns>Were the settings successfully saved?</returns>
+        </member>
+        <member name="P:Cother.ApplicationSettingsManagement.LastError">
+            <summary>
+            Contains any last error that might have been produced by LoadSettings/SaveSettings. Perhaps insufficient disk space? 
+            </summary>
+        </member>
+        <member name="T:Cother.UberWebClient">
+            <summary>
+            WebClient with shorter timeout and that acts as a mobile device
+            </summary>
+        </member>
+        <member name="T:Cother.GoogleImage">
+            <summary>
+            Data structure containing the downloaded image.
+            </summary>
+        </member>
+        <member name="M:Cother.GoogleImage.DownloadFullsizeTo(System.String)">
+            <summary>
+            Downloads the full-size image to local path.
+            </summary>
+        </member>
+        <member name="M:Cother.GoogleImage.DownloadThumbnailTo(System.String)">
+            <summary>
+            Downloads the thumbnail image to local path.
+            </summary>
+        </member>
+        <member name="M:Cother.GoogleImage.ToString">
+            <summary>
+            Returns the full-size image url.
+            </summary>
+        </member>
+        <member name="M:Cother.GoogleImage.GetImagesForKeyword(System.String,System.Int32)">
+            <summary>
+            Asks the Google search engine to return images based on given query, starting at a specified image number.
+            </summary>
+            <param name="keywords">The search query (for example, "forest glade").</param>
+            <param name="startat">The number of image from which to start.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Cother.GoogleImage.ThumbnailUrl">
+            <summary>
+            URL of the thumbnail image.
+            </summary>
+        </member>
+        <member name="P:Cother.GoogleImage.FullsizeUrl">
+            <summary>
+            URL of the full-size image.
+            </summary>
+        </member>
+        <member name="T:Cother.LuaScriptFunction">
+            <summary>
+            Allows this method to be called from Lua scripts.
+            </summary>
+        </member>
+        <member name="M:Cother.LuaScriptFunction.#ctor(System.String)">
+            <summary>
+            This attribute allows this method to be called from Lua scripts.
+            </summary>
+            <param name="inLuaFunctionName">Lua scripts will call this method via this name.</param>
+        </member>
+        <member name="P:Cother.LuaScriptFunction.InLuaFunctionName">
+            <summary>
+            Lua scripts may call this method via this name.
+            </summary>
+        </member>
+        <member name="T:Cother.LuaWrapper">
+            <summary>
+            An interpreter of Lua scripts. Has a self contained virtual machine.
+            </summary>
+        </member>
+        <member name="F:Cother.LuaWrapper.LastError">
+            <summary>
+            Holds the last exception generated from Lua.
+            </summary>
+        </member>
+        <member name="F:Cother.LuaWrapper.luaVM">
+            <summary>
+            Holds the inner Lua virtual machine.
+            </summary>
+        </member>
+        <member name="M:Cother.LuaWrapper.RegisterAttributeBasedFunctions(System.Object)">
+            <summary>
+            Registers all methods of the container that are marked with the appropriate attribute (LuaScriptFunction).
+            </summary>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cother.LuaWrapper.GetGlobal(System.String)">
+            <summary>
+            Returns the value of the specified Lua global variable. Throws an exception if the variable does not exist.
+            </summary>
+        </member>
+        <member name="M:Cother.LuaWrapper.GetGlobalUnsafe(System.String)">
+            <summary>
+            Returns the value of a global variable within the Lua Virtual Machine. May throw an exception or perhaps return null.
+            </summary>
+        </member>
+        <member name="M:Cother.LuaWrapper.SetGlobal(System.String,System.Object)">
+            <summary>
+            Creates or overwrites a global variable within the LuaVM.
+            </summary>
+            <param name="name">Name of the global variable.</param>
+            <param name="value">Value of the global variable.</param>
+        </member>
+        <member name="M:Cother.LuaWrapper.RegisterFunction(System.String,System.Object,System.Reflection.MethodBase)">
+            <summary>
+            Registers a C# method so that it may be used from within Lua.
+            </summary>
+            <param name="functionName">The name this function will have from within Lua.</param>
+            <param name="csharpFunctionOwner">The object that has this method.</param>
+            <param name="csharpFunction">Reference to the function.</param>
+        </member>
+        <member name="M:Cother.LuaWrapper.CallFunction(System.String,System.Object[])">
+            <summary>
+            Calls a function defined in the Lua VM.
+            </summary>
+            <param name="functionName">The Lua function name.</param>
+            <param name="parameters">Parameters to be passed to the Lua function.</param>
+        </member>
+        <member name="M:Cother.LuaWrapper.FunctionExists(System.String)">
+            <summary>
+            Returns true if the LuaVM contains a global function of this name.
+            </summary>
+        </member>
+        <member name="M:Cother.LuaWrapper.TryGetGlobal(System.String,System.Exception@)">
+            <summary>
+            Attempts to retrive the value of a global variable from Lua.
+            If such a variable does not exist, this returns null.
+            </summary>
+            <param name="name">Name of the global Lua variable.</param>
+            <param name="exception">If an exception was generated, it is suppressed and given here (and to LastError).</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cother.LuaWrapper.Execute(System.String)">
+            <summary>
+            Executes the Lua source code passed as parameter.
+            </summary>
+            <param name="luaScriptText">The Lua source code to execute.</param>
+        </member>
+        <member name="M:Cother.LuaWrapper.ExecuteFile(System.String)">
+            <summary>
+            Executes the Lua script found in the specified file.
+            </summary>
+            <param name="luaFileName">Lua script to execute.</param>
+        </member>
+        <member name="M:Cother.LuaWrapper.Reset">
+            <summary>
+            Resets the Lua virtual machine. This unregisters all functions.
+            </summary>
+        </member>
+        <member name="M:Cother.LuaWrapper.#ctor">
+            <summary>
+            Creates a new wrapper around a new Lua virtual machine. Then you can use this wrapper to call Lua scripts.
+            </summary>
+        </member>
+        <member name="T:Cother.ExtensionLibrary">
+            <summary>
+            This static class contains useful extension methods to standard types.
+            </summary>
+        </member>
+        <member name="M:Cother.ExtensionLibrary.Exponentiate(System.Int32,System.UInt32)">
+            <summary>
+            Performs integer exponentiation.
+            </summary>
+            <param name="basis">The base.</param>
+            <param name="power">The exponent.</param>
+            <remarks>Code by Vlix - http://stackoverflow.com/questions/383587/how-do-you-do-integer-exponentiation-in-c
+            </remarks>
+        </member>
+        <member name="M:Cother.ExtensionLibrary.ApproximatelyEqual(System.Single,System.Single)">
+            <summary>
+            Compares two floats and returns true if they are equal. Takes into account rounding errors when manipulating floating-point numbers.
+            </summary>
+            <param name="me">The primary number.</param>
+            <param name="compareToThis">The second number.</param>
+            <returns>true, if the two numbers are approximately equal (taking into account rounding errors). False otherwise.</returns>
+        </member>
+        <member name="M:Cother.ExtensionLibrary.ApproximatelyEqual(System.Double,System.Double)">
+            <summary>
+            Compares two double-precision numbers and returns true if they are equal. Takes into account rounding errors when manipulating floating-point numbers.
+            </summary>
+            <param name="me">The primary number.</param>
+            <param name="compareToThis">The second number.</param>
+            <returns>true, if the two numbers are approximately equal (taking into account rounding errors). False otherwise.</returns>
+        </member>
+        <member name="M:Cother.ExtensionLibrary.Clamp``1(``0,``0,``0)">
+            <summary>
+            Returns the object, or the minimum or maximum if the object exceeds the range.
+            </summary>
+        </member>
+        <member name="M:Cother.ExtensionLibrary.WithPlus(System.Int32)">
+            <summary>
+            Adds a "+" before non-negative integers. For example, "43" becomes "+43", "0" becomes "+0", "-7" stays "-7".
+            </summary>
+            <param name="integer">The integer to convert to string.</param>
+        </member>
+        <member name="T:Cother.Rational">
+            <summary>
+            Represents a rational number that allows for division without precision loss. It represents the number as a tuple of integers. 
+            </summary>
+        </member>
+        <member name="F:Cother.Rational.Precision">
+            <summary>
+            The number of decimal places conserved when converting from a floating-point value to a rational.
+            </summary>
+        </member>
+        <member name="M:Cother.Rational.simplifySelf">
+            <summary>
+            Reduces the fraction to the lowest possible denominator.
+            </summary>
+        </member>
+        <member name="M:Cother.Rational.op_LessThan(Cother.Rational,Cother.Rational)">
+            <summary>
+            Compares two rational numbers.
+            </summary>
+        </member>
+        <member name="M:Cother.Rational.op_Inequality(Cother.Rational,Cother.Rational)">
+            <summary>
+            Compares two rational numbers.
+            </summary>
+        </member>
+        <member name="M:Cother.Rational.op_LessThanOrEqual(Cother.Rational,Cother.Rational)">
+            <summary>
+            Compares two rational numbers.
+            </summary>
+        </member>
+        <member name="M:Cother.Rational.op_GreaterThan(Cother.Rational,Cother.Rational)">
+            <summary>
+            Compares two rational numbers.
+            </summary>
+        </member>
+        <member name="M:Cother.Rational.op_GreaterThanOrEqual(Cother.Rational,Cother.Rational)">
+            <summary>
+            Compares two rational numbers.
+            </summary>
+        </member>
+        <member name="M:Cother.Rational.op_Equality(Cother.Rational,Cother.Rational)">
+            <summary>
+            Compares two rational numbers.
+            </summary>
+        </member>
+        <member name="M:Cother.Rational.op_Explicit(System.Double)~Cother.Rational">
+            <summary>
+            First converts the double to a float, then converts that float to a rational number by cutting it at a certain precision beyond the decimal point.
+            </summary>
+        </member>
+        <member name="M:Cother.Rational.op_Explicit(System.Single)~Cother.Rational">
+            <summary>
+            Converts a float to a rational number by cutting it at a certain precision beyond the decimal point. The precision is specified by the "Precision" constant.
+            </summary>
+        </member>
+        <member name="M:Cother.Rational.op_Implicit(System.Int32)~Cother.Rational">
+            <summary>
+            Implicitly converts an integer to the equivalent (integer/1) rational number.
+            </summary>
+        </member>
+        <member name="M:Cother.Rational.op_Division(Cother.Rational,Cother.Rational)">
+            <summary>
+            Divides two rational numbres.
+            </summary>
+            <exception cref="T:System.DivideByZeroException">When the second operand is zero.</exception>
+        </member>
+        <member name="M:Cother.Rational.op_Multiply(Cother.Rational,Cother.Rational)">
+            <summary>
+            Multiplies two rational numbers.
+            </summary>
+        </member>
+        <member name="M:Cother.Rational.op_Addition(Cother.Rational,Cother.Rational)">
+            <summary>
+            Sums two rational numbers.
+            </summary>
+        </member>
+        <member name="M:Cother.Rational.op_Subtraction(Cother.Rational,Cother.Rational)">
+            <summary>
+            Subtracts the second operand from the first.
+            </summary>
+        </member>
+        <member name="M:Cother.Rational.op_UnaryNegation(Cother.Rational)">
+            <summary>
+            Returns the negation of the operand.
+            </summary>
+        </member>
+        <member name="M:Cother.Rational.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Creates a new rational number from the given numerator and denominator. The denominator must not be zero or an exception occurs.
+            </summary>
+            <param name="numerator">The numerator.</param>
+            <param name="denominator">The denominator (it must not be zero).</param>
+        </member>
+        <member name="M:Cother.Rational.GetHashCode">
+            <summary>
+            Returns numerator * 36 + denominator.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cother.Rational.Equals(System.Object)">
+            <summary>
+            Returns true if the other object is a Rational and equals to the same value.
+            </summary>
+        </member>
+        <member name="P:Cother.Rational.Numerator">
+            <summary>
+            Gets the numerator of the fraction when reduced to lowest terms.
+            </summary>
+        </member>
+        <member name="P:Cother.Rational.Denominator">
+            <summary>
+            Gets the denominator of the fraction when reduced to lowest terms, or 1 if it is an integer.
+            </summary>
+        </member>
+        <member name="T:Cother.SaveLoad">
+            <summary>
+            Serialization-enabling class that can save and load serializables objects to binary files in AppData directory.
+            Keep in mind to generate a different GUID for every game!
+            </summary>
+        </member>
+        <member name="F:Cother.SaveLoad.LastError">
+            <summary>
+            Holds the last exception generated by this class. All exceptions are usually suppressed.
+            </summary>
+        </member>
+        <member name="M:Cother.SaveLoad.DoesSavedGameExist(System.String,System.Int32)">
+            <summary>
+            Returns true only if a session was stored in the slot.
+            </summary>
+        </member>
+        <member name="M:Cother.SaveLoad.LoadSession``1(System.String,System.Int32)">
+            <summary>
+            Reloads a serialized file into memory. Returns NULL on failure.
+            Keep in mind to generate a different GUID for every game!
+            </summary>
+            <typeparam name="T">Type of object to deserialize</typeparam>
+            <param name="applicationName">This name is used to create the folder to hold saves game data.</param>
+            <param name="slot">Where did you save the session?</param>
+            <returns>The deserialized object; or null if failure.</returns>
+        </member>
+        <member name="M:Cother.SaveLoad.SaveSession(System.Object,System.Int32)">
+            <summary>
+            Binary serializes the session into a file and puts it in the app's AppData folder.
+            Keep in mind to generate a different GUID for every game!
+            </summary>
+            <param name="session">The object to serialize.</param>
+            <param name="slot">An arbitrary number. Use this number to reload the object.</param>
+            <returns>Success?</returns>
+        </member>
+        <member name="T:Cother.Internet">
+            <summary>
+            Simple class that allows you to ping internet addresses to, for example, report usage statistics.
+            </summary>
+        </member>
+        <member name="M:Cother.Internet.SendCommand(System.Uri,System.Boolean)">
+            <summary>
+            Adds a request to access the specified URI.
+            </summary>
+            <param name="uri">The URI to access.</param>
+            <param name="sendImmediately">Call SendInternetBurst() immediately.</param>
+        </member>
+        <member name="M:Cother.Internet.SendInternetBurst">
+            <summary>
+            Call all URIs specified via SendCommand now, in order, asynchronously (starts a new thread).
+            </summary>
+        </member>
+        <member name="M:Cother.Internet.requestUris(System.Object)">
+            <summary>
+            This method is always run in a background thread. It does not report success or failure.
+            </summary>
+            <param name="listOfUris">Must be List&lt;Uri&gt;. These addresses will be pinged.</param>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+    </members>
+</doc>

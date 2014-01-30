@@ -1,0 +1,1487 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Auxiliary</name>
+    </assembly>
+    <members>
+        <member name="T:Auxiliary.LoadContentExtensionMethod">
+            <summary>
+            Provides an extension method that allows you to load multiple assets at the same time.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.LoadContentExtensionMethod.LoadContent``1(Microsoft.Xna.Framework.Content.ContentManager,System.String)">
+            <summary>
+            Loads all files from the specified folder as the given type.
+            </summary>
+            <param name="contentManager">The content manager.</param>
+            <param name="contentFolder">Folder name from which to load assets.</param>
+            <typeparam name="T">Type of asset. All assets in the folder must be of this type.</typeparam>
+            <returns></returns>
+            <exception cref="T:System.IO.DirectoryNotFoundException">This folder does not exist.</exception>
+            <remarks>
+            This code comes from Stack Overflow, created by Neil Knights (http://stackoverflow.com/users/410636/neil-knight). The post's page is http://stackoverflow.com/questions/4052532/xna-get-an-array-list-of-resources.
+            </remarks>
+        </member>
+        <member name="T:Auxiliary.Library">
+            <summary>
+            Contains some textures and font. 
+            This is a DrawableGameComponent because it needs to load content from an alternate content library.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Library.GetTexture2DFromGuiIcon(Auxiliary.GuiIcon)">
+            <summary>
+            For the given icon description, returns an appropriate texture.
+            </summary>
+            <param name="icon"></param>
+        </member>
+        <member name="F:Auxiliary.Library.Pixel">
+            <summary>
+            A 1x1 white square.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Library.Circle1000X1000">
+            <summary>
+            A 1000x1000 full circle texture.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Library.EmptyCircle1000X1000">
+            <summary>
+            A 1000x1000 outline of a circle.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Library.IconInformation">
+            <summary>
+            An information bubble icon.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Library.IconWarning">
+            <summary>
+            A warning triangle icon.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Library.IconError">
+            <summary>
+            An error bubble icon.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Library.IconQuestion">
+            <summary>
+            A question mark bubble icon.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Library.IconPlay">
+            <summary>
+            A "Play" media player button.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Library.IconPause">
+            <summary>
+            A "Pause" media player button.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Library.IconStop">
+            <summary>
+            A "Stop" media player button.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Library.IconFullscreen">
+            <summary>
+            A "Switch to Fullscreen" media player button.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Library.FontCourierNew">
+            <summary>
+            A 14px Courier New font.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Library.FontVerdana">
+            <summary>
+            A 14px Verdana font.
+            </summary>
+        </member>
+        <member name="T:Auxiliary.FullscreenVideoGamePhase">
+            <summary>
+            An example GamePhase that displays a video above the game.
+            </summary>
+        </member>
+        <member name="T:Auxiliary.GamePhase">
+            <summary>
+            An abstract class that represents a layer of UI. These layers ("phases") are stacked on top of each other. All of them get drawn, but only the top one gets updated.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.GamePhase.UIElements">
+            <summary>
+            List of UI elements drawn during the phase.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.GamePhase.ReturnedMessageBoxResult">
+            <summary>
+            What button the user clicked using the MessageBoxPhase directly on top of this phase, if any (Awaiting otherwise)
+            </summary>
+        </member>
+        <member name="M:Auxiliary.GamePhase.AddUIElement(Auxiliary.GUI.UIElement)">
+            <summary>
+            Adds a new UI element to this phase.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.GamePhase.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Game,System.Single)">
+            <summary>
+            Virtual method. Override this to perform drawing this phase. The base method will draw all UIElements of this phase. 
+            This method will be called regardless of whether this phase is on top of the stack.
+            </summary>
+            <param name="sb">The spriteBatch to use. The method assumes the spriteBatch is already Begun.</param>
+            <param name="game">The game.</param>
+            <param name="elapsedSeconds">Seconds elapsed since last draw cycle.</param>
+        </member>
+        <member name="M:Auxiliary.GamePhase.Update(Microsoft.Xna.Framework.Game,System.Single)">
+            <summary>
+            Virtual method. Override this to perform updates in this phase. This method will only be called if this phase is on top of stack. The base method causes all UI Elements in the UIElement list to update.
+            </summary>
+            <param name="game">The game.</param>
+            <param name="elapsedSeconds">Seconds elapsed since last update cycle.</param>
+        </member>
+        <member name="M:Auxiliary.GamePhase.Initialize(Microsoft.Xna.Framework.Game)">
+            <summary>
+            Performs any initialization code. Base method is empty.
+            </summary>
+            <param name="game">The game.</param>
+        </member>
+        <member name="M:Auxiliary.GamePhase.Destruct(Microsoft.Xna.Framework.Game)">
+            <summary>
+            Peforms any destruction code, then causes the phase to be flagged for removal from stack.
+            Base method causes this by setting the ScheduledForElimination flag.
+            </summary>
+            <param name="game">The game.</param>
+        </member>
+        <member name="P:Auxiliary.GamePhase.ScheduledForElimination">
+            <summary>
+            Gets or sets the flag that determines whether this phase will be deleted during the next Root.Update() cycle.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.FullscreenVideoGamePhase.Player">
+            <summary>
+            The used ImprovedVideoPlayer.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.FullscreenVideoGamePhase.#ctor(Auxiliary.ImprovedVideoPlayer)">
+            <summary>
+            Create a new  game phase that displays video over other game phases.
+            </summary>
+            <param name="ivp">The video player to use.</param>
+        </member>
+        <member name="M:Auxiliary.FullscreenVideoGamePhase.Update(Microsoft.Xna.Framework.Game,System.Single)">
+            <summary>
+            Updates the full-screen video phase.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.FullscreenVideoGamePhase.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Game,System.Single)">
+            <summary>
+            Draws the fullscreen video phase.
+            </summary>
+        </member>
+        <member name="T:Auxiliary.ImprovedStack`1">
+            <summary>
+            Basically an improved list that provides access to the entire array, but provides methods for Push, Pop and Peek. However, stack pop operation is O(n). Use this structure only for small collections.
+            </summary>
+            <typeparam name="T">The type of elements on the stack.</typeparam>
+        </member>
+        <member name="M:Auxiliary.ImprovedStack`1.Peek">
+            <summary>
+            Returns the top of the stack, without removing it.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.ImprovedStack`1.Push(`0)">
+            <summary>
+            Pushes the item to the top of the stack.
+            </summary>
+            <param name="t">Item to push on top of stack.</param>
+        </member>
+        <member name="M:Auxiliary.ImprovedStack`1.Pop">
+            <summary>
+            Returns the item at the top of the stack and removes it, or returns null or throws an exception if the stack is empty.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Auxiliary.ExtensionMethods">
+            <summary>
+            Provides several extension methods to XNA-only types (general extension methods are implemented in Cother.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.ExtensionMethods.Alpha(Microsoft.Xna.Framework.Color,System.Int32)">
+            <summary>
+            Returns the given color with modified alpha component.
+            </summary>
+            <param name="color">The base color.</param>
+            <param name="alpha">New alpha component (0 to 255).</param>
+        </member>
+        <member name="M:Auxiliary.ExtensionMethods.Extend(Microsoft.Xna.Framework.Rectangle,System.Int32,System.Int32)">
+            <summary>
+            Pushes the rectangle out by the horizontal and vertical amount specified, then returns this new rectangle. You may deflate by using negative values.
+            </summary>
+            <param name="rectangle">The inflated rectangle.</param>
+            <param name="horizontalInflation">Extend by this amount horizontally.</param>
+            <param name="verticalInflation">Extend by this amount vertically.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Auxiliary.ExtensionMethods.MoveToRight(Microsoft.Xna.Framework.Rectangle,System.Int32)">
+            <summary>
+            Returns a rectangle moved to the right.
+            </summary>
+            <param name="rectangle">The original rectangle.</param>
+            <param name="amount">Move rectangle to the right by this amount of pixels.</param>
+        </member>
+        <member name="T:Auxiliary.Utilities">
+            <summary>
+            Provides several static utility functions related to XNA and graphics.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Utilities.LoadTextureAtRuntime(System.String)">
+            <summary>
+            Loads an image from the given filename. Warning!: The Auxiliary.Root class must already be initialized with Root.Init() for this overload to work.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Utilities.LoadTextureAtRuntime(System.String,Microsoft.Xna.Framework.Graphics.GraphicsDevice)">
+            <summary>
+            Loads an image from the given filename.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Utilities.ScaleRectangle(Microsoft.Xna.Framework.Rectangle,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Scales a rectangle identified by 'originalWidth' and 'originalHeight' to fill the area of 'target', except that its aspect ratio must be preserved. The returned rectangle is centered on the center of the target.
+            </summary>
+            <param name="target">The rectangle to be filled in.</param>
+            <param name="originalWidth">VideoWidth of the scaled rectangle.</param>
+            <param name="originalHeight">Height of the scaled rectangle.</param>
+            <param name="alsoScaleUp">Even if the scaled rectangle is smaller in all dimensions than the target, it will still be scaled (up, in this case).</param>
+            <returns></returns>
+        </member>
+        <member name="M:Auxiliary.Utilities.GetSupportedResolutions">
+            <summary>
+            Gets the list of resolutions supported by the computer. It may not be accurate.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Utilities.GetCommonResolutions">
+            <summary>
+            Returns a hard-coded list of common PC monitor resolutions.
+            </summary>
+        </member>
+        <member name="T:Auxiliary.GUI.Button">
+            <summary>
+            Represents an Auxiliary button.
+            </summary>
+        </member>
+        <member name="T:Auxiliary.GUI.UIElement">
+            <summary>
+            Abstract base class to all Auxiliary GUI elements, such as Button or Textbox.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.GUI.UIElement.Rectangle">
+            <summary>
+            Space occupied by this control.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.GUI.UIElement.Draw">
+            <summary>
+            Draws the control.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.GUI.UIElement.Update">
+            <summary>
+            Update the control. The base method causes the control to become active and consumes the left-click if clicked.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.GUI.UIElement.Activate">
+            <summary>
+            Causes the control to become active (gain focus).
+            </summary>
+        </member>
+        <member name="M:Auxiliary.GUI.UIElement.Deactivate">
+            <summary>
+            Deactivates all controls (causes them to lose focus).
+            </summary>
+        </member>
+        <member name="M:Auxiliary.GUI.UIElement.#ctor">
+            <summary>
+            Sets the skin to the default skin.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.UIElement.Skin">
+            <summary>
+            Gets or sets the skin used by this control.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.UIElement.InnerRectangle">
+            <summary>
+            Space occupied by the inner part of this control, excluding the border.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.UIElement.InnerRectangleWithBorder">
+            <summary>
+            ??? Is this the same thing as Rectangle? Why would I write this?
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.UIElement.IsActive">
+            <summary>
+            Returns true if this control is active.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.GUI.Button.OnClick(Auxiliary.GUI.Button)">
+            <summary>
+            Calls the Click event.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.GUI.Button.Update">
+            <summary>
+            Calls OnClick when the button is clicked.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.GUI.Button.#ctor(System.String,Microsoft.Xna.Framework.Rectangle)">
+            <summary>
+            Creates an Auxiliary button.
+            </summary>
+            <param name="text">Text on the button.</param>
+            <param name="rect">Space of the button.</param>
+        </member>
+        <member name="M:Auxiliary.GUI.Button.Draw">
+            <summary>
+            Draws the button.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.Button.Caption">
+            <summary>
+            Text on the button.
+            </summary>
+        </member>
+        <member name="E:Auxiliary.GUI.Button.Click">
+            <summary>
+            Called whenever the user left-clicks the button.
+            </summary>
+        </member>
+        <member name="T:Auxiliary.GUI.GuiSkin">
+            <summary>
+            Holds instruction on colors, sizes and fonts to use in Auxiliary GUI elements using this skin.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.GUI.GuiSkin.Clone">
+            <summary>
+            Creates a deep copy of this skin.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.GUI.GuiSkin.DefaultSkin">
+            <summary>
+            Holds the default skin used by Auxiliary controls (blue).
+            </summary>
+        </member>
+        <member name="F:Auxiliary.GUI.GuiSkin.SimplisticSkin">
+            <summary>
+            Holds the simplistic skin, which has a thin inner border.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.GuiSkin.InnerBorderColorMouseOver">
+            <summary>
+            The color in the inner outline when mouse is over the control.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.GuiSkin.InnerBorderColorMousePressed">
+            <summary>
+            The color in the inner outline when mouse is over the control and its left button is held.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.GuiSkin.InnerBorderColor">
+            <summary>
+            The color in the inner outline.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.GuiSkin.InnerBorderThickness">
+            <summary>
+            The size, in pixels, of the inner outline.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.GuiSkin.OuterBorderColor">
+            <summary>
+            The color of the outer outline.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.GuiSkin.OuterBorderColorMouseOver">
+            <summary>
+            The color of the outer outline if mouse is over the control.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.GuiSkin.OuterBorderThickness">
+            <summary>
+            The size, in pixels, of the outer outline.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.GuiSkin.TotalBorderThickness">
+            <summary>
+            Gets twice the outer outline width + the inner outline width.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.GuiSkin.GreyBackgroundColor">
+            <summary>
+            The color of the background, if in Windows, it would be gray.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.GuiSkin.GreyBackgroundColorMouseOver">
+            <summary>
+            The color of the normally gray background when mouse is over the control.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.GuiSkin.DialogBackgroundColor">
+            <summary>
+            The background color of the form, if any.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.GuiSkin.WhiteBackgroundColor">
+            <summary>
+            The background color which would normally be white in Windows, such as in TextBox controls.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.GuiSkin.ItemSelectedBackgroundColor">
+            <summary>
+            The background color of a selected item in a listbox.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.GuiSkin.ItemMouseOverBackgroundColor">
+            <summary>
+            The background color of an item in a listbox, if mouse is over it.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.GuiSkin.Font">
+            <summary>
+            Font used by the control.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.GuiSkin.TextColor">
+            <summary>
+            Color of the text of the control.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.GuiSkin.TextColorMouseOver">
+            <summary>
+            Color of the text if mouse is over the control.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.GuiSkin.ListItemHeight">
+            <summary>
+            Height of items in a listbox.
+            </summary>
+        </member>
+        <member name="T:Auxiliary.Root">
+            <summary>
+            This static class contains much information used by various components of the Auxiliary engine. 
+            In addition, it contains many public methods such as Init() or DrawOverlay().
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Root.Library">
+            <summary>
+            Some basic fonts and textures
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Root.PhaseStack">
+            <summary>
+            The topmost GamePhase can be interacted with. All phases on the stack are drawn (beneath).
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Root.Keyboard_OldState">
+            <summary>
+            Keyboard state in the previous Update() cycle.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Root.Keyboard_NewState">
+            <summary>
+            Keyboard state in the current Update() cycle.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Root.Mouse_OldState">
+            <summary>
+            Mouse state in the previous Update() cycle.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Root.Mouse_NewState">
+            <summary>
+            Mouse state in the current Update() cycle.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Root.Execute_DoNotLoadXxlTextures">
+            <summary>
+            Will not load the big circle texture necessary for drawing circles. This will speed up loading time and free memory.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Root.Display_DisplayFpsCounter">
+            <summary>
+            Displays the FPS counter as an overlay.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Root.Display_DisplayFpsCounterWhere">
+            <summary>
+            The position, in pixels, of the FPS counter overlay.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Root.PushPhase(Auxiliary.GamePhase)">
+            <summary>
+            Adds new game on top of the stack and initializes it.
+            </summary>
+            <param name="phase">The phase to put on stack.</param>
+        </member>
+        <member name="M:Auxiliary.Root.PopFromPhase">
+            <summary>
+            Calls the "Destruct" method of the phase, which should, by default, set the ScheduledForElimination flag.
+            The phase will be popped from stack only later, not immediately.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Root.IsMouseOver(Microsoft.Xna.Framework.Rectangle)">
+            <summary>
+            Returns true if the mouse cursor is currently inside the specified rectangle.
+            </summary>
+            <param name="rectangle">The rectangle to check for mouse cursor's position</param>
+        </member>
+        <member name="M:Auxiliary.Root.SetResolution(System.Int32,System.Int32)">
+            <summary>
+            Sets and applies the new resolution immediately.
+            </summary>
+            <param name="width">VideoWidth of the resolution.</param>
+            <param name="height">Height of the resolution.</param>
+        </member>
+        <member name="M:Auxiliary.Root.SetResolution(Auxiliary.Resolution)">
+            <summary>
+            Sets and applies the new resolution immediately.
+            </summary>
+            <param name="r">Resolution to apply.</param>
+        </member>
+        <member name="M:Auxiliary.Root.DrawPhase(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws all phases on the stack using the Root spritebatch, in stack order.
+            </summary>
+            <param name="gameTime">gameTime parameter from the Game.Draw() method.</param>
+        </member>
+        <member name="M:Auxiliary.Root.DrawOverlay(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws toasts and FPS counter, if required, using the Root spritebatch.
+            </summary>
+            <param name="gameTime">gameTime parameter from the Game.Draw() method.</param>
+        </member>
+        <member name="M:Auxiliary.Root.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Call this from Game.Update(). Updates keyboard and mouse states, updates all phases, then erases phases scheduled for elimination, and updates toasts and FPS counter.
+            </summary>
+            <param name="gameTime">gameTime parameter from the Game.Update() method.</param>
+        </member>
+        <member name="M:Auxiliary.Root.WasKeyPressed(Microsoft.Xna.Framework.Input.Keys,Auxiliary.ModifierKey[])">
+            <summary>
+            Returns true only if a key was just pressed down and released.
+            </summary>
+            <param name="key">We test whether this key was pressed and released</param>
+            <param name="modifiersPressed">This combination of keys must have been pressed at the time of release</param>
+            <returns></returns>
+        </member>
+        <member name="M:Auxiliary.Root.ConsumeLeftClick">
+            <summary>
+            Sets WasMouseLeftClick to false.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Root.ConsumeMiddleClick">
+            <summary>
+            Sets WasMouseMiddleClick to false.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Root.ConsumeRightClick">
+            <summary>
+            Sets WasMouseRightClick to false.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Root.Init(Microsoft.Xna.Framework.Game,Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.GraphicsDeviceManager,Auxiliary.Resolution,System.Boolean)">
+            <summary>
+            Binds this Root class to the graphics device from the game, and also sets the resolution and fullscreen/windowed mode. You must call Root.Init() before using any other Auxiliary functions.
+            </summary>
+            <param name="game">The primary Game class containg the SpriteBatch and GraphicsDeviceManager.</param>
+            <param name="spriteBatch">The spriteBatch Auxiliary will use to draw. Auxiliary will assume all calls to its method (that could potentially draw something) are inside spriteBatch.Begin() and spriteBatch.End() calls.</param>
+            <param name="graphics">The primary GraphicsDeviceManager from the Game class.</param>
+            <param name="defaultResolution">The resolution to set the game to, or null to leave unchanged.</param>
+            <param name="fullscreenMode">Whether to set the fullscreen mode or windowed mode.</param>
+        </member>
+        <member name="M:Auxiliary.Root.SendToast(System.String,System.Nullable{Microsoft.Xna.Framework.Color},System.Single,Auxiliary.GuiIcon)">
+            <summary>
+            Creates a new short message to be displayed at the bottom of the screen.
+            </summary>
+            <param name="text">Message text.</param>
+            <param name="color">Text color.</param>
+            <param name="duration">Message duration in seconds.</param>
+            <param name="icon">Prepended icon to the message.</param>
+        </member>
+        <member name="F:Auxiliary.Root.ReturnedMessageBoxResult">
+            <summary>
+            The result returned from the last MessageBox removed from stack.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Root.MessageBox(System.String,System.String,Auxiliary.GuiIcon,Auxiliary.MessageBoxButtons)">
+            <summary>
+            Creates a new message box and pushes it on the top of the stack.
+            </summary>
+            <param name="text">Text of the message box.</param>
+            <param name="caption">Caption of the message box.</param>
+            <param name="icon">Icon displayed in the message box.</param>
+            <param name="buttons">Buttons displayed in the message box.</param>
+        </member>
+        <member name="P:Auxiliary.Root.CurrentPhase">
+            <summary>
+            Gets the game phase at the top of the stack or pushes a new game phase to the top of the stack.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.Root.ScreenWidth">
+            <summary>
+            Gets the current width of the game window.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.Root.ScreenHeight">
+            <summary>
+            Gets the current height of the game window.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.Root.Screen">
+            <summary>
+            Gets the rectangle representing the width and height of the game window.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.Root.IsFullscreen">
+            <summary>
+            Gets or sets whether the game is in fullscreen mode.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.Root.WasMouseLeftClick">
+            <summary>
+            Gets or sets. This is set to true or false depending on whether a left mouse click occured since last calling Root.Update().
+            </summary>
+        </member>
+        <member name="P:Auxiliary.Root.WasMouseMiddleClick">
+            <summary>
+            Gets or sets. This is set to true or false depending on whether a middle mouse click occured since last calling Root.Update().
+            </summary>
+        </member>
+        <member name="P:Auxiliary.Root.WasMouseRightClick">
+            <summary>
+            Gets or sets. This is set to true or false depending on whether a right mouse click occured since last calling Root.Update().
+            </summary>
+        </member>
+        <member name="T:Auxiliary.ModifierKey">
+            <summary>
+            A meta-key pressed alongside another key.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.ModifierKey.Ctrl">
+            <summary>
+            Any Control key.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.ModifierKey.Shift">
+            <summary>
+            Any Shift key.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.ModifierKey.Alt">
+            <summary>
+            Any Alt key.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.ModifierKey.Windows">
+            <summary>
+            Any Windows key.
+            </summary>
+        </member>
+        <member name="T:Auxiliary.Resolution">
+            <summary>
+            Represents a display resolution.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Resolution.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Creates a new resolution class instance.
+            </summary>
+            <param name="width">Resolution width.</param>
+            <param name="height">Resolution height.</param>
+        </member>
+        <member name="M:Auxiliary.Resolution.CompareTo(Auxiliary.Resolution)">
+            <summary>
+            A resolution is less than another resolution if its width is less, or if its width is identical and its height is less.
+            </summary>
+            <returns>
+            A value that indicates the relative order of the objects being compared. The return value has the following meanings: Value Meaning Less than zero This object is less than the <paramref name="other"/> parameter.Zero This object is equal to <paramref name="other"/>. Greater than zero This object is greater than <paramref name="other"/>. 
+            </returns>
+            <param name="other">An object to compare with this object.</param>
+        </member>
+        <member name="M:Auxiliary.Resolution.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Auxiliary.Resolution.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Auxiliary.Resolution.ToString">
+            <summary>
+            Returns the string "(width)x(height)". For example, 1024x768.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.Resolution.Width">
+            <summary>
+            Gets or sets the resolution height.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.Resolution.Height">
+            <summary>
+            Gets or sets the resolution height.
+            </summary>
+        </member>
+        <member name="T:Auxiliary.ImprovedVideoPlayer">
+            <summary>
+            Represents a video player control you can use.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.ImprovedVideoPlayer.Update(System.Boolean,System.Boolean)">
+            <summary>
+            Updates the video player.
+            </summary>
+            <param name="alreadyFullscreen">This is true only if this displayed in the FullscreenVideoGamePhase.</param>
+            <param name="mouseisoverthis">Is mouse over this control?</param>
+        </member>
+        <member name="M:Auxiliary.ImprovedVideoPlayer.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Rectangle,System.Boolean)">
+            <summary>
+            Draws the video player.
+            </summary>
+            <param name="sb">Spritebatch to use.</param>
+            <param name="rect">Rectangle to fill.</param>
+            <param name="alreadyFullscreen">Is the video player part of the FullscreenVideoGamePhase?</param>
+        </member>
+        <member name="M:Auxiliary.ImprovedVideoPlayer.#ctor(Microsoft.Xna.Framework.Media.Video,Microsoft.Xna.Framework.Graphics.Texture2D,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Creates a new video player.
+            </summary>
+            <param name="video">Video to play.</param>
+            <param name="defaultTexture">Texture to display when video is not playing.</param>
+            <param name="hasButtons">Show buttons (play, stop, fullscreen)</param>
+            <param name="onclickFullscreen">When clicked, toggles fullscreen.</param>
+            <param name="onclickPlayPause">When clicked, plays or pauses the video playback.</param>
+        </member>
+        <member name="M:Auxiliary.ImprovedVideoPlayer.GetTexture">
+            <summary>
+            Gets the texture currently displayed in the video.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Auxiliary.ImprovedVideoPlayer.Pause">
+            <summary>
+            Pauses the video.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.ImprovedVideoPlayer.Play">
+            <summary>
+            Plays the video, if there is any.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.ImprovedVideoPlayer.Play(Microsoft.Xna.Framework.Media.Video)">
+            <summary>
+            Changes the video to the parameter, then begins playing it.
+            </summary>
+            <param name="video">The new video to play.</param>
+        </member>
+        <member name="M:Auxiliary.ImprovedVideoPlayer.PlayAndStopAtFirstFrame(Microsoft.Xna.Framework.Media.Video)">
+            <summary>
+            Changes the video to the parameter, then displays the first frame of it and pauses.
+            </summary>
+            <param name="video">The new video to play.</param>
+        </member>
+        <member name="M:Auxiliary.ImprovedVideoPlayer.Resume">
+            <summary>
+            Resumes video playback.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.ImprovedVideoPlayer.Stop">
+            <summary>
+            Stops playback of the video.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.ImprovedVideoPlayer.IsLooped">
+            <summary>
+            Gets or sets whether to loop the video.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.ImprovedVideoPlayer.IsMuted">
+            <summary>
+            Gets or sets whether the video is muted.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.ImprovedVideoPlayer.PlayPosition">
+            <summary>
+            Gets the time elapsed since the beginning of the video.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.ImprovedVideoPlayer.State">
+            <summary>
+            Returns the state of the underlying media player.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.ImprovedVideoPlayer.Volume">
+            <summary>
+            Gets or sets the video volume. Has no effect if the video is muted.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.ImprovedVideoPlayer.VideoWidth">
+            <summary>
+            Returns the video width in pixels.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.ImprovedVideoPlayer.VideoHeight">
+            <summary>
+            Returns the video height in pixels.
+            </summary>
+        </member>
+        <member name="T:Auxiliary.GuiIcon">
+            <summary>
+            A basic user interface icon for use in Toasts and MessageBox.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.GuiIcon.None">
+            <summary>
+            No icon.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.GuiIcon.Information">
+            <summary>
+            An information bubble.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.GuiIcon.Warning">
+            <summary>
+            A yellow warning triangle.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.GuiIcon.Question">
+            <summary>
+            A question mark bubble.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.GuiIcon.Error">
+            <summary>
+            A red error bubble.
+            </summary>
+        </member>
+        <member name="T:Auxiliary.MessageBoxPhase">
+            <summary>
+            A game phase you can use to bring up a simple MessageBox-like dialog. When the phase completes, it will put its result in the MessageBoxResult field of the phase under it on stack.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.MessageBoxPhase.Skin">
+            <summary>
+            Skin used for the buttons of this message box and for the message box itself.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.MessageBoxPhase.Width">
+            <summary>
+            VideoWidth of the message box.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.MessageBoxPhase.Height">
+            <summary>
+            Height of the message box.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.MessageBoxPhase.TopLeftX">
+            <summary>
+            The X coordinate of the topleft corner of the message box.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.MessageBoxPhase.TopLeftY">
+            <summary>
+            The Y coordinate of the topleft corner of the messagebox.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.MessageBoxPhase.Initialize(Microsoft.Xna.Framework.Game)">
+            <summary>
+            Initializes the MessageBoxPhase. Sets its bounds and creates its buttons.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.MessageBoxPhase.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Game,System.Single)">
+            <summary>
+            Virtual method. Override this to perform drawing this phase. The base method will draw all UIElements of this phase. 
+            This method will be called regardless of whether this phase is on top of the stack.
+            </summary>
+            <param name="sb">The spriteBatch to use. The method assumes the spriteBatch is already Begun.</param>
+            <param name="game">The game.</param>
+            <param name="elapsedSeconds">Seconds elapsed since last draw cycle.</param>
+        </member>
+        <member name="M:Auxiliary.MessageBoxPhase.Update(Microsoft.Xna.Framework.Game,System.Single)">
+            <summary>
+            Updates the message box and its buttons.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.MessageBoxPhase.#ctor(System.String,System.String,Auxiliary.GuiIcon,Auxiliary.MessageBoxButtons)">
+            <summary>
+            Creates a new MessageBoxPhase. Use this to gain simple choices from the player.
+            </summary>
+            <param name="text">Text to display to the player.</param>
+            <param name="caption">MessageBox caption.</param>
+            <param name="icon">Icon displayed in the message box.</param>
+            <param name="buttons">Buttons displayed in the message box.</param>
+        </member>
+        <member name="T:Auxiliary.MessageBoxButtons">
+            <summary>
+            Buttons the MessageBoxPhase will display.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.MessageBoxButtons.OK">
+            <summary>
+            Only the "OK" button.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.MessageBoxButtons.OKCancel">
+            <summary>
+            The "OK" and "Cancel" buttons.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.MessageBoxButtons.YesNo">
+            <summary>
+            The "Yes" and "No" buttons.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.MessageBoxButtons.YesNoCancel">
+            <summary>
+            The "Yes", "No" and "Cancel" buttons.
+            </summary>
+        </member>
+        <member name="T:Auxiliary.MessageBoxResult">
+            <summary>
+            Button pressed by the user during MessageBoxPhase.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.MessageBoxResult.OK">
+            <summary>
+            The "OK" button.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.MessageBoxResult.Cancel">
+            <summary>
+            The "Cancel " button.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.MessageBoxResult.Yes">
+            <summary>
+            The "Yes" button.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.MessageBoxResult.No">
+            <summary>
+             The "No" button.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.MessageBoxResult.Awaiting">
+            <summary>
+            No result has yet been returned from the MessageBoxPhase.
+            </summary>
+        </member>
+        <member name="T:Auxiliary.Audio">
+            <summary>
+            This is the main type for your game
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Audio.LoadSound(System.String)">
+            <summary>
+            Loads a sound in a filename relative to the application directory.
+            </summary>
+            <param name="filename">example: "Audio\\sound.mp3"</param>
+            <returns>The FSound class.</returns>
+        </member>
+        <member name="M:Auxiliary.Audio.LoadSoundFromAudioSubfolder(System.String)">
+            <summary>
+            Loads a sound in a filename relative to the .\\Audio subfolder. Also appends ".mp3" automatically at the end.
+            </summary>
+            <param name="filename">example: "sound" gets loaded from ".\\Audio\\sound.mp3"</param>
+            <returns></returns>
+        </member>
+        <member name="T:Auxiliary.FSound">
+            <summary>
+            Wrapper class for a FMOD sound
+            </summary>
+        </member>
+        <member name="T:Auxiliary.GUI.Textbox">
+            <summary>
+            Represents an Auxiliary text box. This class utilizes Win32 API and will not work on Mono.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.GUI.Textbox.OnEnterPress(Auxiliary.GUI.Textbox)">
+            <summary>
+            Calls the EnterPress event.
+            </summary>
+            <param name="textbox"></param>
+        </member>
+        <member name="M:Auxiliary.GUI.Textbox.Activate">
+            <summary>
+            Activates the textbox, clearing the keyboard buffer.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.GUI.Textbox.Update">
+            <summary>
+            Handles key presses while the text box is the active control.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.GUI.Textbox.Draw">
+            <summary>
+            Draws the textbox.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.GUI.Textbox.#ctor(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Creates a single-line text box with 40px height.
+            </summary>
+            <param name="text">Initial text.</param>
+            <param name="x">The X coordinate of the top left corner.</param>
+            <param name="y">The Y coordinate of the top left corner.</param>
+            <param name="width">Width of the textbox in pixels.</param>
+        </member>
+        <member name="M:Auxiliary.GUI.Textbox.#ctor(System.String,Microsoft.Xna.Framework.Rectangle,System.Boolean)">
+            <summary>
+            Creates a general text box.
+            </summary>
+            <param name="text">Initial text.</param>
+            <param name="rect">Space occupied by the textbox.</param>
+            <param name="multiline">Determines whether the textbox is multiline.</param>
+        </member>
+        <member name="E:Auxiliary.GUI.Textbox.EnterPress">
+            <summary>
+            Called when the user presses Enter while this text box is active. Is called only if the text box is not multiline.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.Textbox.Text">
+            <summary>
+            Text in the text box.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.Textbox.IsPassword">
+            <summary>
+            Determines whether the text is displayed as a series of asterisks instead.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.Textbox.IsMultiline">
+            <summary>
+            Determines whether the text box is instead a text area.
+            </summary>
+        </member>
+        <member name="T:Auxiliary.GUI.KeyboardInput">
+            <summary>
+            A class to provide text input capabilities to an XNA application via Win32 hooks.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.GUI.KeyboardInput.ClearBuffer">
+            <summary>
+            Clears the keyboard buffer, forgetting any keypresses made but not yet used by the game.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.GUI.KeyboardInput.SetWindowsHookEx(Auxiliary.GUI.KeyboardInput.HookId,Auxiliary.GUI.KeyboardInput.GetMsgProc,System.IntPtr,System.Int32)">
+            <summary>
+            Install an application-defined hook procedure into a hook chain.
+            </summary>
+            <param name="idHook">Specifies the type of hook procedure to be installed.</param>
+            <param name="lpfn">Pointer to the hook procedure.</param>
+            <param name="hmod">Handle to the DLL containing the hook procedure pointed to by the lpfn parameter.</param>
+            <param name="dwThreadId">Specifies the identifier of the thread with which the hook procedure is to be associated.</param>
+            <returns>If the function succeeds, the return value is the handle to the hook procedure. Otherwise returns 0.</returns>
+        </member>
+        <member name="M:Auxiliary.GUI.KeyboardInput.UnhookWindowsHookEx(System.IntPtr)">
+            <summary>
+            Removes a hook procedure installed in a hook chain by the SetWindowsHookEx function. 
+            </summary>
+            <param name="hHook">Handle to the hook to be removed. This parameter is a hook handle obtained by a previous call to SetWindowsHookEx.</param>
+            <returns>If the function fails, the return value is zero. To get extended error information, call GetLastError.</returns>
+        </member>
+        <member name="M:Auxiliary.GUI.KeyboardInput.CallNextHookEx(System.Int32,System.Int32,System.Int32,System.Windows.Forms.Message@)">
+            <summary>
+            Passes the hook information to the next hook procedure in the current hook chain.
+            </summary>
+            <param name="hHook">Ignored.</param>
+            <param name="ncode">Specifies the hook code passed to the current hook procedure.</param>
+            <param name="wParam">Specifies the wParam value passed to the current hook procedure.</param>
+            <param name="lParam">Specifies the lParam value passed to the current hook procedure.</param>
+            <returns>This value is returned by the next hook procedure in the chain.</returns>
+        </member>
+        <member name="M:Auxiliary.GUI.KeyboardInput.TranslateMessage(System.Windows.Forms.Message@)">
+            <summary>
+            Translates virtual-key messages into character messages.
+            </summary>
+            <param name="lpMsg">Pointer to an Message structure that contains message information retrieved from the calling thread's message queue.</param>
+            <returns>If the message is translated (that is, a character message is posted to the thread's message queue), the return value is true.</returns>
+        </member>
+        <member name="M:Auxiliary.GUI.KeyboardInput.GetCurrentThreadId">
+            <summary>
+            Retrieves the thread identifier of the calling thread.
+            </summary>
+            <returns>The thread identifier of the calling thread.</returns>
+        </member>
+        <member name="F:Auxiliary.GUI.KeyboardInput.hookHandle">
+            <summary>Handle for the created hook.</summary>
+        </member>
+        <member name="M:Auxiliary.GUI.KeyboardInput.#ctor">
+            <summary>Creates a instance of a the KeyboardInput class. </summary>
+        </member>
+        <member name="M:Auxiliary.GUI.KeyboardInput.System#IDisposable#Dispose">
+            <summary>
+            Destroys the hook created.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.KeyboardInput.Buffer">
+            <summary>
+            Text written on the keyboard that was not yet output into a textbox
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.KeyboardInput.BackSpace">
+            <summary>
+            Is the Backspace key pressed?
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.KeyboardInput.Enter">
+            <summary>
+            Returns true, if the Enter was pressed since this property was last read.
+            </summary>
+        </member>
+        <member name="E:Auxiliary.GUI.KeyboardInput.KeyUp">
+            <summary>
+            This event is fired whenever the user releases a keyboard key.
+            </summary>
+        </member>
+        <member name="E:Auxiliary.GUI.KeyboardInput.KeyDown">
+            <summary>
+            This event is fired whenever the user presses a key down. It is invoked repeatedly periodically if the user is holding a key down.
+            </summary>
+        </member>
+        <member name="E:Auxiliary.GUI.KeyboardInput.KeyPress">
+            <summary>
+            This event is fired whenever the user releases a pressed key.
+            </summary>
+        </member>
+        <member name="T:Auxiliary.GUI.KeyboardInput.HookId">
+            <summary>
+            Types of hook that can be installed using the SetWindwsHookEx function.
+            </summary>
+        </member>
+        <member name="T:Auxiliary.GUI.KeyboardInput.WindowMessage">
+            <summary>
+            Window message types.
+            </summary>
+            <remarks>Heavily abridged, naturally.</remarks>
+        </member>
+        <member name="T:Auxiliary.GUI.KeyboardInput.GetMsgProc">
+            <summary>
+            A delegate used to create a hook callback.
+            </summary>
+        </member>
+        <member name="T:Auxiliary.Primitives">
+            <summary>
+            This class contains methods for drawing 2D primitives. 
+            WARNING! Before using it, you must call the Primitives.Init() function. This method is called automatically by Root.Init(), however.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Primitives.ClearStringCache">
+            <summary>
+            Clears the cache of multiline string. Then runs garbage collector. (Searching the cache is faster than drawing a multiline string from cache, but if the cache has too many unused entries, searching it is slow.)
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Primitives.DrawMultiLineText(System.String,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Graphics.SpriteFont,Auxiliary.Primitives.TextAlignment)">
+            <summary>
+            Draws a multiline text using the Primitives spritebatch.
+            </summary>
+            <param name="text">Text to be drawn.</param>
+            <param name="rectangle">The rectangle bounding the text.</param>
+            <param name="color">Text color.</param>
+            <param name="font">Text font (Verdana 14, if null).</param>
+            <param name="alignment">Text alignment.</param>
+        </member>
+        <member name="M:Auxiliary.Primitives.GetMultiLineTextBounds(System.String,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Graphics.SpriteFont)">
+            <summary>
+            If the text were written to the specified rectangle, how much width and height would it actually use?
+            This method ignores the rectangle's X and Y properties.
+            </summary>
+            <param name="text">Text to draw.</param>
+            <param name="rectangle">Rectangle bounding the text.</param>
+            <param name="font">Font to use.</param>
+        </member>
+        <member name="M:Auxiliary.Primitives.DrawMultiLineTextDetailedParameters(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Graphics.SpriteFont,System.String,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Color,Auxiliary.Primitives.TextAlignment,System.Boolean,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Rectangle@,System.Collections.Generic.List{Auxiliary.Primitives.MultilineLine}@,System.Boolean)">
+            <summary>
+            Draws a multi-string. 
+            WARNING! This grows more CPU-intensive as the number of words grow (only if word wrap enabled). It is recommended to use the DrawMultiLineText method instead - it uses caching.
+            </summary>
+            <param name="sb">A reference to a SpriteBatch object that will draw the text.</param>
+            <param name="fnt">A reference to a SpriteFont object.</param>
+            <param name="text">The text to be drawn. <remarks>If the text contains \n it
+            will be treated as a new line marker and the text will drawn acordingy.</remarks></param>
+            <param name="r">The screen rectangle that the rext should be drawn inside of.</param>
+            <param name="col">The color of the text that will be drawn.</param>
+            <param name="align">Specified the alignment within the specified screen rectangle.</param>
+            <param name="performWordWrap">If true the words within the text will be aranged to rey and
+            fit within the bounds of the specified screen rectangle.</param>
+            <param name="offsett">Draws the text at a specified offset relative to the screen
+            rectangles top left position. </param>
+            <param name="textBounds">Returns a rectangle representing the size of the bouds of
+            the text that was drawn.</param>
+            <param name="cachedLines">This parameter is internal. Do not use it, merely throw away the variable.</param>
+            <param name="onlyGetBounds">Do not actually draw the text. Instead, merely return (in textBounds) the bounds.</param>
+        </member>
+        <member name="M:Auxiliary.Primitives.FillRectangle(Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Color)">
+            <summary>
+            Draws a filled rectangle without borders. 
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Primitives.DrawRectangle(Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Color,System.Int32)">
+            <summary>
+            Draw the border of a rectangle, without filling it in.
+            </summary>
+            <param name="rectangle">The rectangle.</param>
+            <param name="color">Color of the border.</param>
+            <param name="thickness">Number of pixels (line width)</param>
+        </member>
+        <member name="M:Auxiliary.Primitives.DrawAndFillRectangle(Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color,System.Int32)">
+            <summary>
+            Draw a filled rectangle with a border.
+            </summary>
+            <param name="rectangle">The rectangle.</param>
+            <param name="innerColor">The fill-in color.</param>
+            <param name="outerColor">The border color.</param>
+            <param name="thickness">Border width.</param>
+        </member>
+        <member name="M:Auxiliary.Primitives.DrawPoint(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Int32)">
+            <summary>
+            Draws a square centered on the specified position.
+            </summary>
+            <param name="position">Center of the square.</param>
+            <param name="color">Color of the square.</param>
+            <param name="size">VideoWidth of the square.</param>
+        </member>
+        <member name="M:Auxiliary.Primitives.DrawLine(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Int32)">
+            <summary>
+            Draws a line between two points in 2D space.
+            </summary>
+            <param name="startPoint">Line starts at this point.</param>
+            <param name="endPoint">Line ends at this point.</param>
+            <param name="color">Color of the line.</param>
+            <param name="width">VideoWidth of the line in pixels.</param>
+        </member>
+        <member name="M:Auxiliary.Primitives.DrawSingleLineText(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Graphics.SpriteFont,System.Single)">
+            <summary>
+            Draws string using the basic XNA method. Does not perform word-wrap (it is much faster, though).
+            </summary>
+            <param name="text">Text to draw.</param>
+            <param name="position">Position of the top-left corner.</param>
+            <param name="color">Text color.</param>
+            <param name="font">Font of the text.</param>
+            <param name="scale">Text will be scaled down or up. A scale of 1 means normal size.</param>
+        </member>
+        <member name="M:Auxiliary.Primitives.DrawImage(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Rectangle,System.Nullable{Microsoft.Xna.Framework.Color},System.Boolean,System.Boolean,System.Nullable{Microsoft.Xna.Framework.Color})">
+            <summary>
+            Draws a Texture2D, possibly preserving aspect-ratio (based on parameters).
+            </summary>
+            <param name="texture">The texture to draw.</param>
+            <param name="rectangle">The rectangle to fill with the texture.</param>
+            <param name="color">Tint the image with this color. A value of null (default) means no tinting (i.e. white).</param>
+            <param name="scale">If true, the drawing will preserve aspect ratio.</param>
+            <param name="scaleUp">If true, and we preserve aspect ratio, then the image will be scaled up if necessary.</param>
+            <param name="scaleBgColor">The color that fills the background in case aspect-ratio is preserved. By default, this is null, i.e. no color.</param>
+        </member>
+        <member name="M:Auxiliary.Primitives.DrawRoundedRectangle(Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Color,System.Int32)">
+            <summary>
+            Draw the border of a rounded rectangle.
+            WARNING! Methods for drawing rounded rectangles store rectangle mask textures in memory for performance reasons.
+            If you draw multiple rounded rectangles of different sizes, you may have both performance and memory problems.
+            You may, however, draw a rectangle of the same dimensions multiple times on different areas of the screen without problems.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Primitives.FillRoundedRectangle(Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Color)">
+            <summary>
+            Draws a filled rounded rectangle without a border.
+            WARNING! Methods for drawing rounded rectangles store rectangle mask textures in memory for performance reasons.
+            If you draw multiple rounded rectangles of different sizes, you may have both performance and memory problems.
+            You may, however, draw a rectangle of the same dimensions multiple times on different areas of the screen without problems.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Primitives.DrawAndFillRoundedRectangle(Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color,System.Int32)">
+            <summary>
+            Draws a filled rounded rectangle with a border.
+            WARNING! Methods for drawing rounded rectangles store rectangle mask textures in memory for performance reasons.
+            If you draw multiple rounded rectangles of different sizes, you may have both performance and memory problems.
+            You may, however, draw a rectangle of the same dimensions multiple times on different areas of the screen without problems.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Primitives.FillCircleQuick(Microsoft.Xna.Framework.Vector2,System.Int32,Microsoft.Xna.Framework.Color)">
+            <summary>
+            Draws a filled circle. Unlike the non-quick method, this is much less CPU-intensive but may produce pixelated look
+            on extremely small or extremely large circles. It is recommended you use this instead of the non-quick method.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Primitives.DrawCircleQuick(Microsoft.Xna.Framework.Vector2,System.Int32,Microsoft.Xna.Framework.Color)">
+            <summary>
+            Draws an outline of a circle. Unlike the non-quick method, this is much less CPU-intensive, however, it does not allow you to 
+            specify the width of the outline. If you need to specify that, you must use the non-quick method. In that case, however, it is recommended
+            that you do not change the width or the radius often as whenever you do, the texture of the circle is redrawn which causes a CPU slowdown. 
+            It may also miss some pixels at radii smaller than 20 pixels.
+            (This class keeps a cache of circle textures and stores them in a dictionary based on radius and thickness)
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Primitives.FillCircle(Microsoft.Xna.Framework.Vector2,System.Int32,Microsoft.Xna.Framework.Color)">
+            <summary>
+            Draws a filled circle. 
+            WARNING! This and the DrawCircle method store circle textures in memory for performance reasons.
+            If you draw multiple circles of different radii, you may have both performance and memory problems.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Primitives.DrawCircle(Microsoft.Xna.Framework.Vector2,System.Int32,Microsoft.Xna.Framework.Color,System.Int32)">
+            <summary>
+            Draws an outline of a circle. 
+            WARNING! This and the FillCircle method store circle textures in memory for performance reasons.
+            If you draw multiple circles of different radii, you may have both performance and memory problems.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Primitives.ClearCircleCache">
+            <summary>
+            Clears all cached Circle textures. This will clear space from memory, but drawing circles will take longer. Then runs garbage collector.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Primitives.Init(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Graphics.GraphicsDevice)">
+            <summary>
+            This method is called automatically from Root.Init(). It will enable the use of this static class.
+            </summary>
+        </member>
+        <member name="T:Auxiliary.Primitives.TextAlignment">
+            <summary>
+            Specifies text alignment.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Primitives.TextAlignment.Top">
+            <summary>
+            Align to top.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Primitives.TextAlignment.Left">
+            <summary>
+            Align to left.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Primitives.TextAlignment.Middle">
+            <summary>
+            Align to middle.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Primitives.TextAlignment.Right">
+            <summary>
+            Align to right.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Primitives.TextAlignment.Bottom">
+            <summary>
+            Align to bottom.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Primitives.TextAlignment.TopLeft">
+            <summary>
+            Align to top left.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Primitives.TextAlignment.TopRight">
+            <summary>
+            Allign to top right.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Primitives.TextAlignment.BottomLeft">
+            <summary>
+            Align to bottom left.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Primitives.TextAlignment.BottomRight">
+            <summary>
+            Align to bottom right.
+            </summary>
+        </member>
+        <member name="T:Auxiliary.Primitives.MultilineLine">
+            <summary>
+            Do not use this class outside Auxiliary 3.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Primitives.MultilineLine.Text">
+            <summary>
+            Do not use this class outside Auxiliary 3.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.Primitives.MultilineLine.PositionOffset">
+            <summary>
+            Do not use this class outside Auxiliary 3.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.Primitives.MultilineLine.#ctor(System.String,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Do not use this class outside Auxiliary 3.
+            </summary>
+        </member>
+        <member name="T:Auxiliary.GUI.Listbox`1">
+            <summary>
+            Represents an Auxiliary list box control.
+            </summary>
+            <typeparam name="T">This type should override ToString().</typeparam>
+        </member>
+        <member name="M:Auxiliary.GUI.Listbox`1.OnItemSelected(Auxiliary.GUI.Listbox{`0},System.Object)">
+            <summary>
+            Calls the ItemSelected event.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.GUI.Listbox`1.OnItemConfirmed(Auxiliary.GUI.Listbox{`0},System.Object)">
+            <summary>
+            Calls the ItemConfirmed event.
+            </summary>
+        </member>
+        <member name="F:Auxiliary.GUI.Listbox`1.Items">
+            <summary>
+            The collection of objects in this listbox.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.GUI.Listbox`1.Update">
+            <summary>
+            Update the control. The base method causes the control to become active and consumes the left-click if clicked.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.GUI.Listbox`1.Draw">
+            <summary>
+            Draws the control.
+            </summary>
+        </member>
+        <member name="M:Auxiliary.GUI.Listbox`1.#ctor(Microsoft.Xna.Framework.Rectangle)">
+            <summary>
+            Creates a new Auxiliary listbox.
+            </summary>
+            <param name="rect">Space occupied by the listbox.</param>
+        </member>
+        <member name="E:Auxiliary.GUI.Listbox`1.ItemSelected">
+            <summary>
+            Triggers whenever an item is selected. It is guaranteed the selected item will not be null when this is called.
+            </summary>
+        </member>
+        <member name="E:Auxiliary.GUI.Listbox`1.ItemConfirmed">
+            <summary>
+            Triggers whenever an item is clicked or is selected and the Enter key is pressed.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.Listbox`1.SelectedIndex">
+            <summary>
+            Gets or sets the index of the selected item. Returns -1 when no item is selected. Deselects anything if set to an invalid index.
+            </summary>
+        </member>
+        <member name="P:Auxiliary.GUI.Listbox`1.SelectedItem">
+            <summary>
+            Gets or sets the selected item. Returns null if no item is selected. Throws exception of set to an object not in the listbox.
+            </summary>
+        </member>
+    </members>
+</doc>

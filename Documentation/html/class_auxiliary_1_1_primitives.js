@@ -1,0 +1,35 @@
+var class_auxiliary_1_1_primitives =
+[
+    [ "MultilineLine", "class_auxiliary_1_1_primitives_1_1_multiline_line.html", "class_auxiliary_1_1_primitives_1_1_multiline_line" ],
+    [ "TextAlignment", "class_auxiliary_1_1_primitives.html#a63fbcd89343645a6c0cca650be2812c0", [
+      [ "Top", "class_auxiliary_1_1_primitives.html#a63fbcd89343645a6c0cca650be2812c0aa4ffdcf0dc1f31b9acaf295d75b51d00", null ],
+      [ "Left", "class_auxiliary_1_1_primitives.html#a63fbcd89343645a6c0cca650be2812c0a945d5e233cf7d6240f6b783b36a374ff", null ],
+      [ "Middle", "class_auxiliary_1_1_primitives.html#a63fbcd89343645a6c0cca650be2812c0ab1ca34f82e83c52b010f86955f264e05", null ],
+      [ "Right", "class_auxiliary_1_1_primitives.html#a63fbcd89343645a6c0cca650be2812c0a92b09c7c48c520c3c55e497875da437c", null ],
+      [ "Bottom", "class_auxiliary_1_1_primitives.html#a63fbcd89343645a6c0cca650be2812c0a2ad9d63b69c4a10a5cc9cad923133bc4", null ],
+      [ "TopLeft", "class_auxiliary_1_1_primitives.html#a63fbcd89343645a6c0cca650be2812c0ab32beb056fbfe36afbabc6c88c81ab36", null ],
+      [ "TopRight", "class_auxiliary_1_1_primitives.html#a63fbcd89343645a6c0cca650be2812c0a1d85a557894c340c318493f33bfa8efb", null ],
+      [ "BottomLeft", "class_auxiliary_1_1_primitives.html#a63fbcd89343645a6c0cca650be2812c0a98e5a1c44509157ebcaf46c515c78875", null ],
+      [ "BottomRight", "class_auxiliary_1_1_primitives.html#a63fbcd89343645a6c0cca650be2812c0a9146bfc669fddc88db2c4d89297d0e9a", null ]
+    ] ],
+    [ "ClearCircleCache", "class_auxiliary_1_1_primitives.html#a1c2708c9e72fbdb0ffc2168256825972", null ],
+    [ "ClearStringCache", "class_auxiliary_1_1_primitives.html#a1033f22839784f8b47250ffed357c706", null ],
+    [ "DrawAndFillRectangle", "class_auxiliary_1_1_primitives.html#a6471223a6510587bcafffb870e9a7d14", null ],
+    [ "DrawAndFillRoundedRectangle", "class_auxiliary_1_1_primitives.html#a47e169e8786ecf26a63a65b47e1db9fe", null ],
+    [ "DrawCircle", "class_auxiliary_1_1_primitives.html#a72eb6ed92f67e46b20e5356a0908f651", null ],
+    [ "DrawCircleQuick", "class_auxiliary_1_1_primitives.html#a58170f195a6cea30e716614ee59bcc40", null ],
+    [ "DrawImage", "class_auxiliary_1_1_primitives.html#af2e34bf5b5bfb8bcdb1d975aa66a288f", null ],
+    [ "DrawLine", "class_auxiliary_1_1_primitives.html#a48c96015caba727c77adf183e4e60992", null ],
+    [ "DrawMultiLineText", "class_auxiliary_1_1_primitives.html#aeb76e0384c6e29464154f629ff30858f", null ],
+    [ "DrawMultiLineTextDetailedParameters", "class_auxiliary_1_1_primitives.html#aba09350cbcb4fa0b223915c41735c3ac", null ],
+    [ "DrawPoint", "class_auxiliary_1_1_primitives.html#aa62068279b3724b303016cd53ffb0b5b", null ],
+    [ "DrawRectangle", "class_auxiliary_1_1_primitives.html#a6687a6238cc84312e61111839a80b46f", null ],
+    [ "DrawRoundedRectangle", "class_auxiliary_1_1_primitives.html#a2da90b72dc132a587324221d9a32c684", null ],
+    [ "DrawSingleLineText", "class_auxiliary_1_1_primitives.html#aec2d7f42c268a4fc58e388efddac7064", null ],
+    [ "FillCircle", "class_auxiliary_1_1_primitives.html#a972a0c11d32f19bbdeb3ea60d9ab164e", null ],
+    [ "FillCircleQuick", "class_auxiliary_1_1_primitives.html#ab12159b25cf217d953f41136474dfb52", null ],
+    [ "FillRectangle", "class_auxiliary_1_1_primitives.html#ad78842a1d8d4ea4db8a6d37909038ba2", null ],
+    [ "FillRoundedRectangle", "class_auxiliary_1_1_primitives.html#a551f8ff7db816666585ef12e4dd89f42", null ],
+    [ "GetMultiLineTextBounds", "class_auxiliary_1_1_primitives.html#a52079983d2c1b97178c90f2affaca5a1", null ],
+    [ "Init", "class_auxiliary_1_1_primitives.html#a59701593cea63b61c5ea835302b27eb7", null ]
+];

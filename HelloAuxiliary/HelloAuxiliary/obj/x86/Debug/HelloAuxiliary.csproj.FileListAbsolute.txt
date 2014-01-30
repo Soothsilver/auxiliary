@@ -1,0 +1,58 @@
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\AuxiliaryContent 3\pixel.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\AuxiliaryContent 3\circle1000x1000.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\AuxiliaryContent 3\emptyCircle1000x1000.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\AuxiliaryContent 3\Icons\error.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\AuxiliaryContent 3\Icons\information.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\AuxiliaryContent 3\Icons\pause.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\AuxiliaryContent 3\Icons\play.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\AuxiliaryContent 3\Icons\question.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\AuxiliaryContent 3\Icons\warning.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\AuxiliaryContent 3\Icons\fullscreen.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\AuxiliaryContent 3\Icons\stop.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\AuxiliaryContent 3\topRightCorner.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\AuxiliaryContent 3\fontCourierNew.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\AuxiliaryContent 3\fontVerdana.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\fmod\fmodex.dll
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\ImprovedXnaGame.exe
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\ImprovedXnaGame.pdb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\Auxiliary.dll
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\Cother.dll
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\LuaInterface.dll
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\lua51.dll
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\Auxiliary.pdb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\Auxiliary.xml
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\Cother.pdb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\bin\x86\Debug\Cother.xml
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\obj\x86\Debug\HelloAuxiliary.csprojResolveAssemblyReference.cache
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\obj\x86\Debug\ImprovedXnaGame.exe
+D:\Skydrive\d20 Sunheart\Auxiliary 3\ImprovedXnaGame\ImprovedXnaGame\obj\x86\Debug\ImprovedXnaGame.pdb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\AuxiliaryContent 3\pixel.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\AuxiliaryContent 3\circle1000x1000.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\AuxiliaryContent 3\emptyCircle1000x1000.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\AuxiliaryContent 3\Icons\error.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\AuxiliaryContent 3\Icons\information.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\AuxiliaryContent 3\Icons\pause.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\AuxiliaryContent 3\Icons\play.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\AuxiliaryContent 3\Icons\question.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\AuxiliaryContent 3\Icons\warning.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\AuxiliaryContent 3\Icons\fullscreen.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\AuxiliaryContent 3\Icons\stop.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\AuxiliaryContent 3\topRightCorner.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\AuxiliaryContent 3\fontCourierNew.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\AuxiliaryContent 3\fontVerdana.xnb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\fmod\fmodex.dll
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\ImprovedXnaGame.exe
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\ImprovedXnaGame.pdb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\Auxiliary.dll
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\Cother.dll
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\LuaInterface.dll
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\lua51.dll
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\Auxiliary.pdb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\Auxiliary.xml
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\Cother.pdb
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\bin\x86\Debug\Cother.xml
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\obj\x86\Debug\HelloAuxiliary.csprojResolveAssemblyReference.cache
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\obj\x86\Debug\ImprovedXnaGame.exe
+D:\Skydrive\d20 Sunheart\Auxiliary 3\HelloAuxiliary\HelloAuxiliary\obj\x86\Debug\ImprovedXnaGame.pdb
