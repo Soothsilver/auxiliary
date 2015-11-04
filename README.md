@@ -1,4 +1,4 @@
-# Auxiliary 2D library for XNA. Feel free to ask me for help using it, if necessary.
+# Auxiliary 2D library for XNA. 
 
 Auxiliary 2D library for XNA. Feel free to ask me for help using it, if necessary.
 
